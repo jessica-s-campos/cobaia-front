@@ -13,7 +13,6 @@ export function obterAutorizacaoMeli(){
     })
 }
 
-
 export function obterVisitasItem(codigo){
   let url = "https://cobaia-api-backend.herokuapp.com/meli/obter-visitas?ids="+codigo;
   //let url = "https://localhost:4050/meli/obter-visitas?ids="+codigo;
