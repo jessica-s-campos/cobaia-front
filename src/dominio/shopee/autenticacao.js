@@ -18,24 +18,6 @@ function Timestamp(){
 
 export function  obterAutorizacao(){
 
-    let path = "/api/v2/shop/auth_partner"
-    let timestamp = Timestamp();        
-    let signature = createSignature(path,timestamp);
-    
-    let url = host+path+"?partner_id="+partnerID+"&timestamp="+timestamp+"&sign="+signature+"&redirect="+redirect_url;
-
-    let options = {
-        method: 'GET',
-        mode: 'cors'
-    };
-    console.log(`url :`,url)
-    fetch(url,options)    
-    .then((resultado) => console.log('resultado shopee: ',resultado))   
-    .catch(err => {
-      console.err('err ',err)
-    })
-
-
 
     /*const requestOptions = {
       method: 'POST',

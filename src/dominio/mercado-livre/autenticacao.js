@@ -1,7 +1,8 @@
 
 
 export function obterAutorizacaoMeli(){
-    let url = "https://localhost:4050/meli/verify-credentials";
+    let url = "https://cobaia-api-backend.herokuapp.com/meli/verify-credentials";
+    //let url = "https://localhost:4050/meli/verify-credentials";
     
     fetch(url)    
     .then((dados) => 
@@ -14,8 +15,8 @@ export function obterAutorizacaoMeli(){
 
 
 export function obterVisitasItem(codigo){
-
-  let url = "https://localhost:4050/meli/obter-visitas?ids="+codigo;
+  let url = "https://cobaia-api-backend.herokuapp.com/meli/obter-visitas?ids="+codigo;
+  //let url = "https://localhost:4050/meli/obter-visitas?ids="+codigo;
   
   fetch(url)    
   .then((dados) => 
@@ -29,7 +30,8 @@ export function obterVisitasItem(codigo){
 export async function obterVisitasItens(itens){
 
   if(itens.length > 0){
-    let url = "https://localhost:4050/meli/obter-visitas-all";
+    let url = "https://cobaia-api-backend.herokuapp.com/meli/obter-visitas-all";
+    //let url = "https://localhost:4050/meli/obter-visitas-all";
     let options = {
       method: 'POST',  
       headers: {
