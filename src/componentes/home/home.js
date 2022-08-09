@@ -1,53 +1,79 @@
 import React from 'react';
 import './../home/home.css';
-import { obterAutorizacao } from '../../dominio/shopee/autenticacao'; 
-import { obterAutorizacaoMeli, obterVisitasItens } from '../../dominio/mercado-livre/autenticacao'; 
-import Login from '../login-mktpl/login';
+import Marketplace from '../login-mktpl/marketplace';
+
+const host = "https://localhost:4050";//https://cobaia-api-backend.herokuapp.com
 
 class Home extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = {}  
+    
     this.logarMeli = this.logarMeli.bind(this); 
     this.logarShopee = this.logarShopee.bind(this); 
     this.obterVisitas = this.obterVisitas.bind(this); 
+   
   }
 
   componentDidMount() {   
    
   }
 
-  logarMeli(){
-    console.log('chamou logarMeli')
-    obterAutorizacaoMeli();
+  async logarMeli(){    
+    let url = `${host}/meli/verify-credentials`;
     
+    await fetch(url)    
+    .then((dados) => 
+      dados.json().then(_url => window.location.assign(_url))
+    )   
+    .catch(err => {
+      console.log('err ',err)
+    })   
   }
 
-  logarShopee(){
-    console.log('chamou logarShopee')
-    obterAutorizacao();
-    
+  async logarShopee(){
+    console.log('chamou logarShopee')    
   }
 
   async obterVisitas(){
-    console.log('chamou obterVisitas')    
+      
     let entrada = document.getElementById('obter-visitas-entrada').value.split(',');
-
-    let resultado = await obterVisitasItens(entrada);
-    document.getElementById('obter-visitas-resultado').value = JSON.stringify(resultado)
     
+    if(entrada.length > 0){
+      let url = `${host}/meli/obter-visitas-all`;
+      let options = {
+        method: 'POST',  
+        headers: {
+          'Content-Type':  'application/json'
+        },  
+        body : JSON.stringify({ itens: entrada })
+      }
+    
+      await fetch(url,options)    
+      .then((dados) => 
+        dados.json().then((resultado) => {
+          //console.log(resultado)
+          document.getElementById('obter-visitas-resultado').value = JSON.stringify(resultado)
+        })
+      )   
+      .catch(err => {
+        console.log('err ',err)
+      })
+    }
   }
 
+
+  
 
   render(){
 
     return (
       
-        <div>
+        <div>           
             <div className='Login-Area'>           
-              <Login mktplNome = "Mercado Livre" mktpl='meli' onClick={this.logarMeli}></Login>
-              <Login mktplNome = "Shopee" mktpl='shopee' onClick={this.logarShopee}></Login>
+              <Marketplace nome = "Mercado Livre" mktpl='meli' idStoreName = "meli-store-name" 
+              onClickLogar={this.logarMeli}></Marketplace>
+              <Marketplace nome = "Shopee" mktpl='shopee' onClickLogar={this.logarShopee}></Marketplace>
             </div>
             <div>
               <div className='Home-Funcao'>
@@ -64,7 +90,7 @@ class Home extends React.Component{
                 </div>
                 <button  onClick={this.obterVisitas}>Obter Vistas</button>
               </div>
-            </div>
+            </div>            
         </div>
   
     );
