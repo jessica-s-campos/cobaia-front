@@ -2,7 +2,7 @@ import React from 'react';
 import './../home/home.css';
 import Marketplace from '../login-mktpl/marketplace';
 
-const host = "https://localhost:4050";//https://cobaia-api-backend.herokuapp.com
+const host = "https://cobaia-api-backend.herokuapp.com" //"https://localhost:4050";
 
 class Home extends React.Component{
 

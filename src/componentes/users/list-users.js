@@ -1,7 +1,7 @@
 import React from 'react';
 import './../users/list-users.css';
 
-const host = "https://localhost:4050";//https://cobaia-api-backend.herokuapp.com
+const host = "https://cobaia-api-backend.herokuapp.com";//https://localhost:4050
 
 class ListUsersModal extends React.Component{
 

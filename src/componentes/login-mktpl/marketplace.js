@@ -2,7 +2,7 @@ import React from 'react';
 import './../login-mktpl/marketplace.css';
 import ListUsersModal from '../users/list-users';
 
-const host = "https://localhost:4050";//https://cobaia-api-backend.herokuapp.com
+const host = "https://cobaia-api-backend.herokuapp.com";//https://localhost:4050
 
 class Marketplace extends React.Component{
     
