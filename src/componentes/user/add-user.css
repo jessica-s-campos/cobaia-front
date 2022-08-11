@@ -1,0 +1,43 @@
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-user{
+    background: rgb(243, 231, 164);
+    width: 30vw;
+}
+.add-user label{
+    text-align: left;
+}
+.add-user .inputs{  
+    display:flex;
+    flex-direction: column;   
+    width: auto;
+    padding: 0 2rem 0 2rem;
+    margin: 1rem;
+}
+
+.add-user button{
+    margin-bottom: 2rem;
+    height: 5vh;
+    width: 180px;
+}
+
+.btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+
+    margin-right: 40vw;
+}

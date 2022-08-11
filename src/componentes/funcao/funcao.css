@@ -1,0 +1,34 @@
+.funcao{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: white;
+    align-items: center;
+}
+.funcao .nome{    
+    color: rgb(49, 49, 219);
+}
+
+.entrada-saida{
+    display: flex;
+    justify-content: center;
+}
+
+.entrada, .saida{
+    display: flex;
+    flex-direction: column;
+}
+
+.entrada label, .saida label{
+    font-size: 0.75rem;
+    padding: 0.25rem;
+}
+
+.entrada textarea, .saida textarea{
+    margin: 0.25rem;
+}
+
+.funcao button{  
+    width: 150px;
+}

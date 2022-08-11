@@ -1,0 +1,32 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(128, 128, 128, 0.171);
+    align-items: center;
+    justify-content: center;    
+}
+
+.cabecalho{
+    width: 70vw; 
+    border: 1px solid gray;
+    border-bottom: none;
+}
+
+button{
+    border: none;  
+    cursor: pointer;
+    background-color: white;
+    height: 3vh;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
+}
+
+button:hover{
+    transform: scale(1.1);
+    background-color:orangered;
+    color:white;
+}
+
+button:active{
+    color:orangered;
+}

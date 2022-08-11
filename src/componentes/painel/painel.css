@@ -1,0 +1,77 @@
+.painel{
+    display: flex;
+    width: 70vw; 
+    justify-content: center;
+    padding: 1rem 0;    
+    border-bottom: 1px dotted gray;
+
+    background: rgb(9,9,121);
+    background: linear-gradient(180deg, rgba(9,9,121,1) 0%, rgba(17,17,153,1) 31%);
+
+}
+
+.conta-de-trabalho-dados{
+    display: flex;
+    flex-direction: column;
+    
+    padding: 1rem;
+
+    width: 15vw;
+}
+
+.descricao{
+    font-size: 1rem;    
+    font-weight: 200;
+    color:white;
+}
+
+.nome-loja{
+    color:orangered;
+    font-weight: bold;
+    padding: 0.5rem;
+}
+
+.marketplace{
+    color:yellow;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.conta-de-trabalho-opcoes{
+
+    padding: 1rem;
+
+    width: 10vw;
+}
+
+.conta-de-trabalho-opcoes .status{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+.status-value::before{
+    content: '{ ';
+    font-size: 1.2rem;
+}
+.status-value::after{
+    content: ' }';
+    font-size: 1.2rem;
+}
+
+.acoes{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.status-descricao{
+    font-weight: bold;
+    color: gray;
+}
+
+.status-value{
+    color:lawngreen;
+    font-weight: bold;    
+}
+

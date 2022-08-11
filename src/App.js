@@ -1,10 +1,15 @@
 import './App.css';
-import Home from './componentes/home/home';
+import logo from './logo.svg';
+//import Home from './componentes/home/home';
+import Main from './../src/componentes/main/main';
 
-function App() {
+
+function App(env) {
+
   return (
     <div className="App">
-      <Home></Home>
+      {/*<img src={logo} className="App-logo" alt="logo" />*/}     
+      <Main></Main>
     </div>
   );
 }
