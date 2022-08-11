@@ -45,6 +45,6 @@ export async function addNewUser(marketplace, user){
     })
   )   
   .catch(err => {
-    console.err('err ',err)
+    console.error('err ',err)
   })
 }

@@ -11,7 +11,7 @@ async function obterStatusCredenciais(marketplace, user_id){
       }
     )   
     .catch(err => {
-      console.err('err ',err)
+      console.error('err ',err)
     })  
   }
 

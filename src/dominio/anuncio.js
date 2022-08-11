@@ -10,7 +10,7 @@ export async function obterAnuncio(marketplace, anuncio, user_id){
     })
     )   
     .catch(err => {
-        console.err('err ',err)
+        console.error('err ',err)
     })
   }
 
@@ -33,7 +33,7 @@ export async function obterAnuncio(marketplace, anuncio, user_id){
         })
       )   
       .catch(err => {
-        console.err('err ',err)
+        console.error('err ',err)
       })
     }
   }
