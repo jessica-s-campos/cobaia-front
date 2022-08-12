@@ -5,9 +5,6 @@
     padding: 1rem 0;    
     border-bottom: 1px dotted gray;
 
-    background: rgb(9,9,121);
-    background: linear-gradient(180deg, rgba(9,9,121,1) 0%, rgba(17,17,153,1) 31%);
-
 }
 
 .conta-de-trabalho-dados{
@@ -22,7 +19,7 @@
 .descricao{
     font-size: 1rem;    
     font-weight: 200;
-    color:white;
+    color:blue;
 }
 
 .nome-loja{
@@ -32,7 +29,7 @@
 }
 
 .marketplace{
-    color:yellow;
+    color:magenta;
     font-size: 1rem;
     font-weight: bold;
 }

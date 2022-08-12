@@ -5,6 +5,8 @@
     margin: 1rem;
     background-color: white;
     align-items: center;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 50px -21px rgba(0,0,0,0.76); 
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 50px -21px rgba(0,0,0,0.76);
 }
 .funcao .nome{    
     color: rgb(49, 49, 219);

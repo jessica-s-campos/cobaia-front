@@ -4,12 +4,16 @@
     background-color: rgba(128, 128, 128, 0.171);
     align-items: center;
     justify-content: center;    
+
+    
 }
 
 .cabecalho{
     width: 70vw; 
     border: 1px solid gray;
     border-bottom: none;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 }
 
 button{

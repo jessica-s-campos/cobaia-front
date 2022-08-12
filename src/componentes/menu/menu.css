@@ -5,10 +5,7 @@
     width: 70vw; 
     height: 5vh;
     padding: 1rem 0; 
-        
-    background: rgb(17,17,153);
-    background: linear-gradient(180deg, rgba(17,17,153,1) 0%, rgba(30,30,179,1) 31%);
-
+   
 }
 
 .menu-acoes{

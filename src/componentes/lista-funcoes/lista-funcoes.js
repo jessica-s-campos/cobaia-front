@@ -1,5 +1,6 @@
 import React from 'react';
 import Funcao from './../funcao/funcao';
+import FuncaoCustomizada from './../funcao-customizada/funcao';
 
 import './../lista-funcoes/lista-funcoes.css';
 
@@ -66,7 +67,7 @@ class ListaFuncoes extends React.Component {
 
   render() {
     return (
-      <div className="lista-funcoes">
+      <div className="lista-funcoes"> 
           <Funcao nome="Obter Visitas"                        
             lblEntradaDados="Insira os IDS dos anúncios separados por virgula" 
             lblResultado="Resultado" 
