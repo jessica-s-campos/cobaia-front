@@ -54,16 +54,16 @@ class AddUser extends React.Component {
             <label className='title'>Dados para cadastro de um novo usuário/seller</label> 
             <div className='add-user'>                
                     <div className='inputs'>
-                        <label for='id'>Id(SellerId)</label>
+                        <label htmlFor='id'>Id(SellerId)</label>
                         <input id='id' type='text' onChange={this.handleId}></input>
 
-                        <label for='nickname'>Nickname (Apelido)</label>
+                        <label htmlFor='nickname'>Nickname (Apelido)</label>
                         <input id='nickname' type='text' onChange={this.handleNickName}></input>
 
-                        <label for='first-name'>First Name</label>
+                        <label htmlFor='first-name'>First Name</label>
                         <input id='first-name' type='text' onChange={this.handleFirstName}></input>
 
-                        <label for='last-name'>Last Name</label>
+                        <label htmlFor='last-name'>Last Name</label>
                         <input id='last-name' type='text' onChange={this.handleLastName}></input>
                     </div>
                     <button onClick={this.salvar}>Salvar</button>

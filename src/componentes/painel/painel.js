@@ -19,7 +19,8 @@ class Painel extends React.Component {
         this.obterStatus = this.obterStatus.bind(this);
     }
 
-    componentDidMount(){               
+    componentDidMount(){      
+        document.title = "Conecta MKTPL"         
         this.carregarDadosLojaTrabalho();
         eventBus.on("change-user-current", (item) => {
             if(item.data)
@@ -56,26 +57,31 @@ class Painel extends React.Component {
     }
 
     async obterStatus(){
-        await obterStatusCredenciais(this.state.marketplace,this.state.user_id)
-        .then((res) => {
-            this.setState({      
-                status: res.status
-            }) 
-        })
+        if(localStorage.getItem('id-loja')){
+            await obterStatusCredenciais(this.state.marketplace,this.state.user_id)
+            .then((res) => {
+                this.setState({      
+                    status: res.status
+                }) 
+            })
+        }
+        
     }
 
     deletar(){      
-        
-        user.deletarCurrentWorkUser(this.state.marketplace,this.state.user_id)
-        .then((res) => {
-            if(res.status == 200){
-                localStorage.removeItem('id-loja')
-                localStorage.removeItem('nome-loja')
-                localStorage.removeItem('marketplace-loja')
-
-                eventBus.dispatch("change-user-current", { message: "usuario foi alterado", data : null });
-            }
-        })
+        if(localStorage.getItem('id-loja') && window.confirm(`Confirmar exclusão da conta de trabalho ${localStorage.removeItem('nome-loja')} ?`)){
+            user.deletarCurrentWorkUser(this.state.marketplace,this.state.user_id)
+            .then((res) => {
+                if(res.status == 200){
+                    localStorage.removeItem('id-loja')
+                    localStorage.removeItem('nome-loja')
+                    localStorage.removeItem('marketplace-loja')
+    
+                    eventBus.dispatch("change-user-current", { message: "usuario foi alterado", data : null });
+                }
+            })
+        }
+       
     }
 
     async refresh(){
@@ -84,6 +90,7 @@ class Painel extends React.Component {
 
     render() {
       return (
+        
         <div className='painel'>
                 <div className="conta-de-trabalho-dados">
                     <label className="descricao">Conta de Trabalho</label>

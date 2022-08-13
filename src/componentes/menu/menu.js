@@ -8,6 +8,9 @@ import ListUsers from '../user/list-users';
 
 import eventBus from "./../../eventos";
 
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 class Menu extends React.Component {
   constructor(props){
     super(props);
@@ -65,6 +68,13 @@ async newAccountMeli(){
 }
 
 async salvarUser(user){
+ 
+  if(isNaN(parseInt(user.id)))
+  {
+    toast("Informe um SellerId válido",{position:"top-center",hideProgressBar:true,type:'error'})
+    return;
+  }
+
   await addNewUser('shopee',user)
   .then(async (res)=>{
     console.log(res)

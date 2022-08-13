@@ -1,6 +1,5 @@
 import React from 'react';
 import Funcao from './../funcao/funcao';
-import FuncaoCustomizada from './../funcao-customizada/funcao';
 
 import './../lista-funcoes/lista-funcoes.css';
 
