@@ -1,10 +1,22 @@
+.root{
+    display: flex;
+    flex-direction: column;
+}
+
 .painel{
     display: flex;
+
     width: 70vw; 
     justify-content: center;
     padding: 1rem 0;    
     border-bottom: 1px dotted gray;
 
+}
+
+.aviso{
+    margin-top: 1rem;
+    font-size: 0.90rem;
+    color: red;
 }
 
 .conta-de-trabalho-dados{

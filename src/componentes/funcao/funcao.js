@@ -17,7 +17,7 @@ class Funcao extends React.Component {
         this.handleChangeValueResultado = this.handleChangeValueResultado.bind(this);
 
         eventBus.on('resultado-obtido',(res)=>{         
-            document.getElementById(res.field.toString()).value = JSON.stringify(res.data);
+            document.getElementById(res.field.toString()).value = JSON.stringify(JSON.parse(res.data),undefined,4);
         })
     }
 

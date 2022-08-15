@@ -37,3 +37,21 @@ export async function obterAnuncio(marketplace, anuncio, user_id){
       })
     }
   }
+
+
+  export async function obterVariacoes(marketplace, anuncio, user_id){
+
+    let url = `${process.env.REACT_APP_API_URL}/${marketplace}/obter-variacoes?anuncio=${anuncio}&marketplace=${marketplace}&user_id=${user_id}`;   
+
+    return await fetch(url)    
+    .then((dados) => 
+    dados.json().then((resultado) => {
+        //colocar esse resultado no text area de resultado da funcao
+        return JSON.stringify(resultado);
+    })
+    )   
+    .catch(err => {
+        console.error('err ',err)
+    })
+  }
+

@@ -11,7 +11,8 @@ class Painel extends React.Component {
             user_id : 0,         
             nomeLoja: '',
             marketplace:'',
-            status:''
+            status:'',
+            aviso:''
         } 
 
         this.deletar = this.deletar.bind(this);
@@ -20,7 +21,13 @@ class Painel extends React.Component {
     }
 
     componentDidMount(){      
-        document.title = "Conecta MKTPL"         
+        document.title = "Conecta MKTPL" ;
+    
+        if(this.state.nomeLoja=='')
+        this.setState({      
+            aviso: 'Selecione uma Conta de Trabalho ou Adicione Uma Nova Conta para começar'
+        })
+
         this.carregarDadosLojaTrabalho();
         eventBus.on("change-user-current", (item) => {
             if(item.data)
@@ -28,11 +35,19 @@ class Painel extends React.Component {
                 localStorage.setItem('id-loja',item.data.id)
                 localStorage.setItem('nome-loja',`${item.data.first_name} ${item.data.last_name}`)
                 localStorage.setItem('marketplace-loja',item.data.marketplace)
+
+                this.setState({      
+                    aviso: ''
+                })
             }
             else{
                 localStorage.removeItem('id-loja')
                 localStorage.removeItem('nome-loja')
                 localStorage.removeItem('marketplace-loja')
+
+                this.setState({      
+                    aviso: 'Selecione uma Conta de Trabalho ou Adicione Uma Nova Conta para começar'
+                })
             }
 
 
@@ -90,27 +105,31 @@ class Painel extends React.Component {
 
     render() {
       return (
-        
-        <div className='painel'>
-                <div className="conta-de-trabalho-dados">
-                    <label className="descricao">Conta de Trabalho</label>
-                    <label className="nome-loja">{this.state.nomeLoja}</label>
-                    <label className="marketplace">{this.state.marketplace}</label>
-                </div>
-                
-                <div className='conta-de-trabalho-opcoes'>
-                    <div className="status">
-                        <button className='status-descricao' onClick={this.obterStatus}>STATUS</button>
-                        <label className="status-value">{this.state.status}</label>
+       <div className='root'>
+            <label className="aviso">{this.state.aviso}</label>
+            <div className='painel'>
+                    
+                    <div className="conta-de-trabalho-dados">
+                        <label className="descricao">Conta de Trabalho</label>
+                        <label className="nome-loja">{this.state.nomeLoja}</label>
+                        <label className="marketplace">{this.state.marketplace}</label>
                     </div>
-                    <div className="acoes">
-                        <button className="refresh" onClick={this.refresh}>Refresh</button>
-                        <button className="deletar" onClick={this.deletar}>Deletar</button>
+                    
+                    <div className='conta-de-trabalho-opcoes'>
+                        <div className="status">
+                            <button className='status-descricao' onClick={this.obterStatus}>STATUS</button>
+                            <label className="status-value">{this.state.status}</label>
+                        </div>
+                        <div className="acoes">
+                            <button className="refresh" onClick={this.refresh}>Refresh</button>
+                            <button className="deletar" onClick={this.deletar}>Deletar</button>
+                        </div>
+                        
                     </div>
-                </div>
-                
-          
-      </div>
+                    
+                    
+        </div>
+       </div>
       )
     }
 }
