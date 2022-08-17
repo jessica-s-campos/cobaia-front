@@ -128,23 +128,23 @@ class ListaFuncoes extends React.Component {
             <li>
               <button onClick={()=>this.abrirFuncao('obter-visitas','Obter Visitas',this.obterVisitas,"Insira os IDS dos anúncios separados por virgula",'Resultado')}>Obter Visitas
               <div className='tags'>
-                <img class="icons icon-meli "></img>
-                <img class="icons icon-shopee"></img>
+                <img className="icons icon-meli "></img>
+                <img className="icons icon-shopee"></img>
               </div>
               </button>             
             </li>
             <li>
               <button onClick={()=>this.abrirFuncao('obter-anuncio','Obter Anúncio',this.obterAnuncio,'Insira o ID do anúncio','Resultado')}>Obter Anúncio
               <div className='tags'>
-                <img class="icons icon-meli "></img>
-                <img class="icons icon-shopee"></img>
+                <img className="icons icon-meli "></img>
+                <img className="icons icon-shopee"></img>
               </div>
               </button>
               </li>
             <li>
               <button onClick={()=>this.abrirFuncao('obter-variacoes','Obter Variações',this.obterVariacoes,'Insira o ID do anúncio','Resultado')}>Obter Variações
               <div className='tags'>              
-                <img class="icons icon-shopee"></img>
+                <img className="icons icon-shopee"></img>
               </div>
               </button>      
               </li>            

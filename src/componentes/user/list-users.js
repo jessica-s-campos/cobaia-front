@@ -23,7 +23,8 @@ class ListUsers extends React.Component {
         await user.getAllUsers()
             .then((dados) => {
                 dados.json()
-                .then(json => {                    
+                .then(json => {    
+                            
                     this.setState({
                         users : json
                     })        

@@ -3,6 +3,7 @@ import './../painel/painel.css';
 import * as user from '../../dominio/user';
 import obterStatusCredenciais from '../../dominio/credenciais';
 import eventBus from "./../../eventos";
+import login from '../../dominio/login';
 
 class Painel extends React.Component {
     constructor(props){
@@ -100,7 +101,7 @@ class Painel extends React.Component {
     }
 
     async refresh(){
-       
+        await login('refresh',this.state.marketplace, this.state.user_id)
     }
 
     render() {
