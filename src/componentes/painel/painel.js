@@ -34,7 +34,7 @@ class Painel extends React.Component {
             if(item.data)
             {
                 localStorage.setItem('id-loja',item.data.id)
-                localStorage.setItem('nome-loja',`${item.data.first_name} ${item.data.last_name}`)
+                localStorage.setItem('nome-loja',`${item.data.nickname}`)
                 localStorage.setItem('marketplace-loja',item.data.marketplace)
 
                 this.setState({      

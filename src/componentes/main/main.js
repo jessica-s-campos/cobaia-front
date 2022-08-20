@@ -22,6 +22,8 @@ class Main extends React.Component {
             </div>
             <ListaFuncoes></ListaFuncoes>
             <ToastContainer autoClose={2000}/>
+            <label href='https://cobaia-api-backend.herokuapp.com/user/getAll'></label>
+            
         </div>
       )
     }

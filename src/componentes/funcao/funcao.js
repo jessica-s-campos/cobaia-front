@@ -16,8 +16,9 @@ class Funcao extends React.Component {
         this.handleChangeValueEntrada = this.handleChangeValueEntrada.bind(this);
         this.handleChangeValueResultado = this.handleChangeValueResultado.bind(this);
 
-        eventBus.on('resultado-obtido',(res)=>{         
-            document.getElementById(res.field.toString()).value = JSON.stringify(JSON.parse(res.data),undefined,4);
+        eventBus.on('resultado-obtido',(res)=>{               
+            console.log(JSON.stringify(res.data,undefined,4))
+            document.getElementById(res.field.toString()).value = JSON.stringify(res.data,undefined,4);
         })
     }
 
@@ -37,12 +38,12 @@ class Funcao extends React.Component {
             <div className="entrada-saida">
                 <div className='entrada'>
                     <label>{this.props.lblEntradaDados}</label>  
-                    <textarea rows="5" cols="50" id="entrada-dados" value={this.props.entrada} onChange={this.handleChangeValueEntrada}></textarea> 
+                    <textarea rows="3" cols="50" id="entrada-dados" value={this.props.entrada} onChange={this.handleChangeValueEntrada}></textarea> 
                 </div>
                  
                 <div className='saida'>
                     <label>{this.props.lblResultado}</label>    
-                    <textarea rows="5" cols="50" id={this.props.resultadoId} onChange={this.handleChangeValueResultado}></textarea>
+                    <textarea rows="25" cols="50" id={this.props.resultadoId} onChange={this.handleChangeValueResultado}></textarea>
                 </div>     
             </div>   
             <button onClick={this.props.onClickExecutarFuncao}>Executar</button>

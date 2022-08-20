@@ -67,7 +67,7 @@ class ListaFuncoes extends React.Component {
       this.user().marketplace,
       this.state.anuncios,
       this.user().id)
-      .then((resultado)=>{
+      .then((resultado)=>{        
         eventBus.dispatch('resultado-obtido', { message: "temos resultado", field: 'obter-visitas-resultado' ,data : resultado });
       })
   }
@@ -97,7 +97,7 @@ class ListaFuncoes extends React.Component {
     console.log(`abrirFuncao ${tag}`)
     let nomeEvento = tag;
     let resultadoId = `${tag}-resultado`;   
-    
+    console.log(`resultadoId ${resultadoId}`)
     await this.showModal();
     
     let children = <Modal onClose={this.showModal}       

@@ -29,6 +29,7 @@ export async function obterAnuncio(marketplace, anuncio, user_id){
       return await fetch(url,options)    
       .then((dados) => 
         dados.json().then((resultado) => {
+          console.log('resultado galera ',resultado)
             return resultado;
         })
       )   
