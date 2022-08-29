@@ -1,6 +1,6 @@
 export async function obterAnuncio(marketplace, anuncio, user_id){
 
-    let url = `${process.env.REACT_APP_API_URL}/${marketplace}/obter-item?anuncio=${anuncio}&marketplace=${marketplace}&user_id=${user_id}`;   
+    let url = `${process.env.REACT_APP_API_URL}/${marketplace}/obter-item?anuncio=${anuncio}&user_id=${user_id}`;   
 
     return await fetch(url)    
     .then((dados) => 
@@ -17,7 +17,7 @@ export async function obterAnuncio(marketplace, anuncio, user_id){
   export async function obterVisitas (marketplace, anuncios, user_id){
    
     if(anuncios.length > 0){
-      let url = `${process.env.REACT_APP_API_URL}/${marketplace}/obter-visitas-all?marketplace=${marketplace}&user_id=${user_id}`;
+      let url = `${process.env.REACT_APP_API_URL}/${marketplace}/obter-visitas-all?user_id=${user_id}`;
       let options = {
         method: 'POST',  
         headers: {
@@ -42,7 +42,7 @@ export async function obterAnuncio(marketplace, anuncio, user_id){
 
   export async function obterVariacoes(marketplace, anuncio, user_id){
 
-    let url = `${process.env.REACT_APP_API_URL}/${marketplace}/obter-variacoes?anuncio=${anuncio}&marketplace=${marketplace}&user_id=${user_id}`;   
+    let url = `${process.env.REACT_APP_API_URL}/${marketplace}/obter-variacoes?anuncio=${anuncio}&user_id=${user_id}`;   
 
     return await fetch(url)    
     .then((dados) => 
