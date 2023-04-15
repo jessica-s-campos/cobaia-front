@@ -24,14 +24,14 @@ class Painel extends React.Component {
     componentDidMount(){      
         document.title = "Conecta MKTPL" ;
     
-        if(this.state.nomeLoja=='')
+        if(this.state.nomeLoja=='' || (localStorage.getItem('id-loja') == 'null' && localStorage.getItem('id-loja') == null && localStorage.getItem('id-loja') == undefined))
         this.setState({      
-            aviso: 'Selecione uma Conta de Trabalho ou Adicione Uma Nova Conta para começar'
+            aviso: 'Selecione uma conta de trabalho ou adicione uma nova conta para começar'
         })
 
         this.carregarDadosLojaTrabalho();
-        eventBus.on("change-user-current", (item) => {
-            if(item.data)
+        eventBus.on("change-user-current", (item) => {      
+            if(item.data || (localStorage.getItem('id-loja') !== 'null' && localStorage.getItem('id-loja') !== null && localStorage.getItem('id-loja') !== undefined))
             {
                 localStorage.setItem('id-loja',item.data.id)
                 localStorage.setItem('nome-loja',`${item.data.nickname}`)
@@ -88,6 +88,7 @@ class Painel extends React.Component {
         if(localStorage.getItem('id-loja') && window.confirm(`Confirmar exclusão da conta de trabalho ${localStorage.removeItem('nome-loja')} ?`)){
             user.deletarCurrentWorkUser(this.state.marketplace,this.state.user_id)
             .then((res) => {
+               
                 if(res.status == 200){
                     localStorage.removeItem('id-loja')
                     localStorage.removeItem('nome-loja')
@@ -111,8 +112,9 @@ class Painel extends React.Component {
             <div className='painel'>
                     
                     <div className="conta-de-trabalho-dados">
-                        <label className="descricao">Conta de Trabalho</label>
+                        <label className="descricao">CONTA DE TRABALHO</label>
                         <label className="nome-loja">{this.state.nomeLoja}</label>
+                        <label className="user_id">{this.state.user_id}</label>
                         <label className="marketplace">{this.state.marketplace}</label>
                     </div>
                     

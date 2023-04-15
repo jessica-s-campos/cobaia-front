@@ -16,11 +16,12 @@ class Main extends React.Component {
 
       return (
         <div className='main'>
+            <h1>conecta-mktpl</h1>
             <div className='cabecalho'>
             <Painel></Painel>
             <Menu></Menu>
             </div>
-            <ListaFuncoes></ListaFuncoes>
+            {/* <ListaFuncoes></ListaFuncoes> */}
             <ToastContainer autoClose={2000}/>
             <label href='https://cobaia-api-backend.herokuapp.com/user/getAll'></label>
             

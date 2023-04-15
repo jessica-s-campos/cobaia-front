@@ -5,13 +5,12 @@ async function login(login_type, marketplace, user_id){
     if(login_type=='verify' || login_type=='delete' || login_type=='refresh'){
       url = `${process.env.REACT_APP_API_URL}/autenticacao/verify-credentials?login_type=${login_type}&marketplace=${marketplace}&user_id=${user_id}`;
     }
-    console.log(url)
+
     await fetch(url)    
     .then((dados) => 
     {
       
       dados.json().then(async(resultado) => {
-        console.log('resultado ',resultado)
 
         if(login_type!=='verify')
           window.location.replace(resultado)        

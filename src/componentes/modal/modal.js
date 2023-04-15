@@ -26,7 +26,7 @@ class Modal extends React.Component {
                     <button onClick={this.props.onClose}>Fechar</button>
                 </div>
                 <label className='title'>{this.props.title}</label> 
-                {this.props.innerModal}             
+                {this.props.innerModal}            
              </div> 
         )
     }

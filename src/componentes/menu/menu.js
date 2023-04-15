@@ -42,6 +42,8 @@ async showListUsers(){
   this.setState({
     showListUsers: !this.state.showListUsers
   });
+
+  
 }
 
 async showAddUserInfo(){
@@ -54,7 +56,6 @@ async OnChangeListUsers(e){
   
   let item = JSON.parse(e.target.value);      
   let name = item.first_name + ' ' + item.last_name;  
-  console.log(`novo usuario de trabalho : ${name} | ${item.marketplace}`)
  
   eventBus.dispatch("change-user-current", { message: "usuario foi alterado", data : item });
 }
@@ -88,9 +89,9 @@ async salvarUser(user){
     return (
       <div className='menu'>
         <div className="menu-acoes">
-          <button onClick={this.newAccountMeli}>Add Conta Meli</button>
-          <button onClick={this.newAccountShopee}>Add Conta Shopee</button>
-          <button onClick={this.showListUsers}>Trocar Conta de Trabalho</button>
+          <button onClick={this.newAccountMeli}>Adicionar Conta Meli</button>
+          <button onClick={this.newAccountShopee}>Adicionar Conta Shopee</button>
+          <button onClick={this.showListUsers}>Selecionar Conta de Trabalho</button>
         </div>
         <div className='menu-modal'>
         {

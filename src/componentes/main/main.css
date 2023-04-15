@@ -1,34 +1,45 @@
 .main{
     display: flex;
-    flex-direction: column;
-    background-color: rgba(128, 128, 128, 0.171);
+    flex-direction: column;    
     align-items: center;
     justify-content: center;    
-
     
+}
+
+h1{
+    color: rgb(132, 7, 214);    
+    text-shadow: 1px 2px 2px gray;   
 }
 
 .cabecalho{
     width: 70vw; 
-    border: 1px solid gray;
+    border: 1px solid rgb(253, 251, 251);
+    background-color: rgba(234, 235, 233, 0.253);
+    border-radius: 10px;
     border-bottom: none;
     -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 }
 
 button{
-    border: none;  
+    border: 1px solid rgba(137, 43, 226, 0.39);
+    border-radius: 6px;
+    padding : 0.5rem;
+    margin : 0.5rem;
+    width: max-content;
+    height: auto;
     cursor: pointer;
-    background-color: white;
-    height: 3vh;
+    background-color: white;    
     font-weight: 500;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
 }
+
 
 button:hover{
     transform: scale(1.1);
     background-color:orangered;
     color:white;
+    border: 1px solid orangered;
 }
 
 button:active{

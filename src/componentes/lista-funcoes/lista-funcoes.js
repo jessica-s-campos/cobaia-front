@@ -94,10 +94,10 @@ class ListaFuncoes extends React.Component {
   }
 
   async abrirFuncao(tag,nome,funcao,lblEntradaDados,lblResultado){
-    console.log(`abrirFuncao ${tag}`)
+  
     let nomeEvento = tag;
     let resultadoId = `${tag}-resultado`;   
-    console.log(`resultadoId ${resultadoId}`)
+
     await this.showModal();
     
     let children = <Modal onClose={this.showModal}       

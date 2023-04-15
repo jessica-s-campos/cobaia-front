@@ -12,7 +12,7 @@
     display: flex;
     justify-content: space-between;
 
-    width: 30vw;
+    width: max-content;
 }
 
 .menu button{    
