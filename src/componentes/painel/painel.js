@@ -30,7 +30,7 @@ class Painel extends React.Component {
         })
 
         this.carregarDadosLojaTrabalho();
-        eventBus.on("change-user-current", (item) => {      
+        eventBus.on("change-user-current", async (item) => {      
             if(item.data || (localStorage.getItem('id-loja') !== 'null' && localStorage.getItem('id-loja') !== null && localStorage.getItem('id-loja') !== undefined))
             {
                 localStorage.setItem('id-loja',item.data.id)
@@ -45,10 +45,14 @@ class Painel extends React.Component {
                 localStorage.removeItem('id-loja')
                 localStorage.removeItem('nome-loja')
                 localStorage.removeItem('marketplace-loja')
-
+                
+                window.location.reload(false);
+                
                 this.setState({      
                     aviso: 'Selecione uma Conta de Trabalho ou Adicione Uma Nova Conta para começar'
                 })
+
+                
             }
 
 
@@ -85,7 +89,7 @@ class Painel extends React.Component {
     }
 
     deletar(){      
-        if(localStorage.getItem('id-loja') && window.confirm(`Confirmar exclusão da conta de trabalho ${localStorage.removeItem('nome-loja')} ?`)){
+        if(localStorage.getItem('id-loja') && window.confirm(`Confirmar exclusão da conta de trabalho ${localStorage.getItem('nome-loja')} ?`)){
             user.deletarCurrentWorkUser(this.state.marketplace,this.state.user_id)
             .then((res) => {
                
