@@ -2,7 +2,7 @@ import React from 'react';
 import './../menu/menu.css';
 
 import login from '../../dominio/login';
-import {addNewUser} from '../../dominio/user';
+import {addNewUser} from '../../dominio/useraccount';
 import AddUser from '../user/add-user';
 import ListUsers from '../user/list-users';
 
@@ -41,9 +41,7 @@ componentDidMount(){
 async showListUsers(){
   this.setState({
     showListUsers: !this.state.showListUsers
-  });
-
-  
+  });  
 }
 
 async showAddUserInfo(){
@@ -56,8 +54,8 @@ async OnChangeListUsers(e){
   
   let item = JSON.parse(e.target.value);      
   let name = item.first_name + ' ' + item.last_name;  
- 
-  eventBus.dispatch("change-user-current", { message: "usuario foi alterado", data : item });
+  this.showListUsers()
+  eventBus.dispatch("change-user-current", { message: "usuario foi alterado", data : item , showMessage : false});
 }
 
 async newAccountShopee(){
@@ -111,7 +109,7 @@ async salvarUser(user){
               show={this.state.showAddUserInfo} >
           </AddUser> 
         } 
-        </div>        
+        </div>              
       </div>
     )
   }

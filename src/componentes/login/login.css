@@ -1,0 +1,45 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+
+    padding: 1rem;
+}
+
+h4{
+    color:blueviolet;
+    padding-bottom: 2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+}
+
+.login form{
+        
+    border: 1px solid blueviolet;
+    border-radius: 10px;
+    text-align: left;  
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    width: 65vw;
+}
+
+.login .field{
+    display: flex;   
+    padding: 0.25rem;
+}
+
+.login label{
+    width: 150px;
+}
+.login input{
+    width: 300px;
+}
+
+.btn-login{
+    margin-top: 2rem;
+    width: 460px;
+}

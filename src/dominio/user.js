@@ -1,51 +1,55 @@
 
 
-export async function deletarCurrentWorkUser(marketplace, user_id){
-    
-    let url = `${process.env.REACT_APP_API_URL}/user/delete?marketplace=${marketplace}&user_id=${user_id}`;
+export async function verify(){
 
-    let options = {
-      method: 'DELETE'       
-    }
-
-    return await fetch(url,options)    
-    .then((resultado) =>     
-      {        
-        return resultado;
-      }
-    )   
-    .catch(err => {
-      console.log('err ',err)
-    })  
-  }
-
-export async function getAllUsers(){
-
-  let url = `${process.env.REACT_APP_API_URL}/user/getAll`;
-  return await fetch(url)
-  .catch(err => {
-    console.log('err ',err)
-  })  
-}
-
-export async function addNewUser(marketplace, user){
-  
-  let url = `${process.env.REACT_APP_API_URL}/user/add-user?marketplace=${marketplace}`;
+  let url = `${process.env.REACT_APP_API_URL}/user/verify`;
   let options = {
-    method: 'POST',  
+    method: 'GET',  
     headers: {
-      'Content-Type':  'application/json'
-    },  
-    body : JSON.stringify({ user: user })
+      'authorization':  localStorage.getItem('token')
+    }
   }
 
   return await fetch(url,options)    
   .then((dados) => 
-    dados.json().then((resultado) => {
+    dados.json().then((resultado) => {      
         return resultado;
     })
   )   
   .catch(err => {
     console.error('err ',err)
-  })
+  }) 
+}
+
+export async function login(username, email, password){
+
+  let url = `${process.env.REACT_APP_API_URL}/user/login`;
+  let options = {
+    method: 'POST',  
+    headers: {
+      'Content-Type':  'application/json'
+    },  
+    body : JSON.stringify({ username: username ,email : email, password : password})
+  }
+
+  return await fetch(url,options).then(resp => {
+    return resp
+  });
+}
+
+export async function signup(username, email, password){
+  
+  let url = `${process.env.REACT_APP_API_URL}/user/signup`;
+  let options = {
+    method: 'POST',  
+    headers: {
+      'Content-Type':  'application/json'
+    },  
+    body : JSON.stringify({ username: username ,email : email, password : password})
+  }
+
+  return await fetch(url,options).then(resp => {
+    return resp
+  }); 
+ 
 }

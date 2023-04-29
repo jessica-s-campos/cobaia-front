@@ -1,6 +1,6 @@
 import React from 'react';
 import './list-users.css';
-import * as user from '../../dominio/user';
+import * as user from '../../dominio/useraccount';
 
 class ListUsers extends React.Component {
 
@@ -50,7 +50,7 @@ class ListUsers extends React.Component {
                             
                                 <div className='item' key={item.id}>                  
                                     <label className='nome'>
-                                        <input id={item.id} type='radio' name="radio" value={JSON.stringify(item)} onChange={this.props.OnChange}/>{item.first_name + " " + item.last_name}
+                                        <input id={item.id} type='radio' name="radio" value={JSON.stringify(item)} onChange={this.props.OnChange}/>{item.nickname + " (" + item.first_name + " " + item.last_name + ")" }
                                     </label>
                                     <label className='marketplace'>
                                         {item.marketplace}

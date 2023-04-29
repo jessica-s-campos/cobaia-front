@@ -1,9 +1,9 @@
 async function login(login_type, marketplace, user_id){    
    
-    let url = `${process.env.REACT_APP_API_URL}/autenticacao/verify-credentials?login_type=${login_type}&marketplace=${marketplace}`;
+    let url = `${process.env.REACT_APP_API_URL}/credenciais/verify-credentials?login_type=${login_type}&marketplace=${marketplace}`;
 
     if(login_type=='verify' || login_type=='delete' || login_type=='refresh'){
-      url = `${process.env.REACT_APP_API_URL}/autenticacao/verify-credentials?login_type=${login_type}&marketplace=${marketplace}&user_id=${user_id}`;
+      url = `${process.env.REACT_APP_API_URL}/credenciais/verify-credentials?login_type=${login_type}&marketplace=${marketplace}&user_id=${user_id}`;
     }
 
     await fetch(url)    
