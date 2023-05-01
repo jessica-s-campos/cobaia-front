@@ -4,6 +4,11 @@
     
 }
 
+a{
+    margin-top: 1rem;
+    font-size: 0.75rem;
+}
+
 .painel{
     display: flex;    
     width: 70vw; 

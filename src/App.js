@@ -40,11 +40,14 @@ class App extends React.Component {
             this.setState({ok : false})          
         });
 
-        window.addEventListener('storage', ()=>{    
-          toast("Login Inválido, recarregando página",{position:"top-center",hideProgressBar:true,type:'error',autoClose: 2000,theme:"colored"})
-          setTimeout(() => {
-            window.location.reload();
-          }, 2000);
+        window.addEventListener('storage', ()=>{   
+          if(localStorage.getItem('token') == null || localStorage.getItem('token') == 'null') {
+            toast("Login Inválido, recarregando página",{position:"top-center",hideProgressBar:true,type:'error',autoClose: 2000,theme:"colored"})
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
+          }
+         
           
         }, false);
     }

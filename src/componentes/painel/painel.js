@@ -18,6 +18,7 @@ class Painel extends React.Component {
             user_id : 0,         
             nome_loja: '',
             nickname: '',
+            link: '',
             marketplace:'',
             status:'',
             username : props.username,
@@ -34,7 +35,11 @@ class Painel extends React.Component {
         this.carregarDadosLojaTrabalho();
         
         eventBus.on("change-user-current", async (item) => {   
-
+            if(localStorage.getItem('marketplace-loja') == "meli")
+                this.setState({link : "https://www.mercadolivre.com.br/perfil/"+localStorage.getItem('nickname')})
+            else if(localStorage.getItem('marketplace-loja') == "shopee")
+                this.setState({link : "https://shopee.com.br/"+localStorage.getItem('nickname')})
+            
             if(item.showMessage == true)
             {
                 toast(item.message,{osition:"top-center",hideProgressBar:true,type:'success',autoClose: 4000,theme:"colored"});               
@@ -67,9 +72,13 @@ class Painel extends React.Component {
 
     
     async carregarDadosLojaTrabalho(){       
-
+        if(localStorage.getItem('marketplace-loja') == "meli")
+            this.setState({link : "https://www.mercadolivre.com.br/perfil/"+localStorage.getItem('nickname')})
+        else if(localStorage.getItem('marketplace-loja') == "shopee")
+            this.setState({link : "https://shopee.com.br/"+localStorage.getItem('nickname')})
+            
         let id = localStorage.getItem('id-loja');
-        let nomeLoja = localStorage.getItem('nome-loja');
+        let nomeLoja = localStorage.getItem('nome-loja').trim();
         let nickname = localStorage.getItem('nickname');
         let marketplace = localStorage.getItem('marketplace-loja');
         
@@ -77,13 +86,13 @@ class Painel extends React.Component {
             this.setState({user_id_class : "aviso heartbeat"}) 
         else
             this.setState({user_id_class : "user_id"}) 
-        
+
         this.setState({
             user_id : id == null || id == "null" ? "Selecione uma Conta de Trabalho ou Adicione Uma Nova Conta para começar" : id,
-            nome_loja: !nomeLoja ? '-' :nomeLoja,
+            nome_loja: !nomeLoja || nomeLoja == "" || nomeLoja == null ? '-' :nomeLoja,
             marketplace: !marketplace ? '-' : marketplace,
             status:  '-',
-            nickname : nickname
+            nickname : !nomeLoja || nomeLoja == "" || nomeLoja == null ? "-" : nickname
         })       
                 
     }
@@ -164,6 +173,7 @@ class Painel extends React.Component {
                         <label className="nome-loja">{this.state.nome_loja}</label>                        
                         <label className={this.state.user_id_class}>{this.state.user_id}</label>
                         <label className="marketplace">{this.state.marketplace}</label>
+                        <a href={this.state.link} target='_blank'>Ver perfil</a>
                     </div>
                     
                     <div className='conta-de-trabalho-opcoes'>
